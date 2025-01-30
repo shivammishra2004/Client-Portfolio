@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link} from 'react-scroll';
 import AnimatedJob from "./AnimatedJob";
 
-function scrollToElement(id) {
+function scrollToElement({id}:{id: string}) {
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
@@ -50,7 +50,7 @@ const Banner = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
           className="w-52 h-14 text-sm font-titleFont border border-textGreen rounded-md text-textGreen tracking-wide hover:bg-hoverColor duration-300"
-          onClick={()=>scrollToElement("project")}
+          onClick={()=>scrollToElement({id:"project"})}
         >Check out my Projects!
         </motion.button>
       </div>

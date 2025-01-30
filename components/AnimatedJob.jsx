@@ -9,9 +9,9 @@ const AnimatedJob = () => {
     const [textIndex, setTextIndex] = useState(0);
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
-    const speed = isDeleting ? 50 : 100;
-
+    
     useEffect(() => {
+        const speed = isDeleting ? 50 : 100;
         const currentText = texts[textIndex];
         if (!isDeleting && displayText === currentText) {
             setTimeout(() => setIsDeleting(true), 1000);

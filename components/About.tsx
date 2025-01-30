@@ -14,16 +14,16 @@ const About = () => {
       <div className="flex flex-col lgl:flex-row gap-16">
         <div className="w-full lgl:w-2/3 text-base text-textDark font-medium flex flex-col gap-4">
           <p>
-          Hi, I’m Deepanshu Kumar, and I’m passionate about crafting strategies, creating engaging content, and designing visuals that make an impact.
+          Hi, I&apos;m Deepanshu Kumar, and I&apos;m passionate about crafting strategies, creating engaging content, and designing visuals that make an impact.
           </p>
           <p>
-  Marketing has always been more than just a profession for me—it’s a way to tell stories that connect people and brands. With an MSc in 
+  Marketing has always been more than just a profession for me—it&apos;s a way to tell stories that connect people and brands. With an MSc in 
   <span className="text-textGreen"> Marketing and Strategy</span> from 
-  <span className="text-textGreen"> Aston University</span>, I’ve honed my skills in blending creativity with 
+  <span className="text-textGreen"> Aston University</span>, I&apos;ve honed my skills in blending creativity with 
   <span className="text-textGreen"> data-driven strategies</span>.
 </p>
 <p>
-  I've worked across digital marketing—including social media campaigns, <span className="text-textGreen">influencer collaborations</span>, and <span className="text-textGreen">market research</span>—in the UK and India. I design eye-catching content and optimize campaigns using tools like <span className="text-textGreen">HubSpot</span>, <span className="text-textGreen">Google Analytics</span>, and <span className="text-textGreen">Adobe Suite</span>, turning ideas into impactful results. Beyond marketing, my passion for <span className="text-textGreen">Photography</span> and <span className="text-textGreen">Technology</span> fuels my creative approach, always aiming to tell stories that resonate and make an impact.
+  I&apos;ve worked across digital marketing—including social media campaigns, <span className="text-textGreen">influencer collaborations</span>, and <span className="text-textGreen">market research</span>—in the UK and India. I design eye-catching content and optimize campaigns using tools like <span className="text-textGreen">HubSpot</span>, <span className="text-textGreen">Google Analytics</span>, and <span className="text-textGreen">Adobe Suite</span>, turning ideas into impactful results. Beyond marketing, my passion for <span className="text-textGreen">Photography</span> and <span className="text-textGreen">Technology</span> fuels my creative approach, always aiming to tell stories that resonate and make an impact.
 </p>
 
 
