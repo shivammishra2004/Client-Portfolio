@@ -2,7 +2,7 @@ import { profileImg } from "@/public/assets";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 import { AiFillThunderbolt } from "react-icons/ai";
-import { SiJavascript, SiNextdotjs, SiNodedotjs, SiReact, SiTypescript } from "react-icons/si";
+import { SiAdobe, SiAdobelightroom, SiAdobephotoshop, SiAdobepremierepro, SiCanva, SiCivicrm, SiGoogleanalytics, SiJavascript, SiMicrosoft, SiNextdotjs, SiNodedotjs, SiReact, SiTypescript, SiWordpress } from "react-icons/si";
 
 const About = () => {
   return (
@@ -31,37 +31,56 @@ const About = () => {
           <ul className="max-w-[450px] text-sm font-titleFont grid grid-cols-2 gap-2 mt-6">
       <li className="group flex items-center gap-2">
         <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
-          <SiJavascript size={20} />
+          <SiAdobephotoshop size={20} />
         </span>
-        JavaScript
+        Photoshop
       </li>
       
       <li className="group flex items-center gap-2">
         <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
-          <SiNextdotjs size={20} />
+          <SiGoogleanalytics size={20} />
         </span>
-        Next.js
+        Google Analytics
+      </li>
+
+      <li className="group flex items-center gap-2">
+        <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
+          <SiAdobepremierepro size={20} />
+        </span>
+        Premiere Pro
+      </li>
+      
+      
+      <li className="group flex items-center gap-2">
+        <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
+          <SiCivicrm size={20} />
+        </span>
+        CRM
       </li>
       
       <li className="group flex items-center gap-2">
         <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
-          <SiReact size={20} />
+          <SiAdobelightroom size={20} />
         </span>
-        React
+        Lightroom
       </li>
-      
       <li className="group flex items-center gap-2">
         <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
-          <SiNodedotjs size={20} />
+          <SiMicrosoft size={20} />
         </span>
-        Node.js
+        MS Suite
       </li>
-      
       <li className="group flex items-center gap-2">
         <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
-          <SiTypescript size={20} />
+          <SiCanva size={20} />
         </span>
-        TypeScript
+        Canva
+      </li>
+      <li className="group flex items-center gap-2">
+        <span className="text-textGreen transform transition-transform duration-200 group-hover:scale-110">
+          <SiWordpress size={20} />
+        </span>
+        WordPress
       </li>
     </ul>
         </div>
