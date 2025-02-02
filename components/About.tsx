@@ -14,7 +14,7 @@ const About = () => {
       <div className="flex flex-col lgl:flex-row gap-16">
         <div className="w-full lgl:w-2/3 text-base text-textDark font-medium flex flex-col gap-4">
           <p>
-          Hi, I&apos;m Deepanshu Kumar, and I&apos;m passionate about crafting strategies, creating engaging content, and designing visuals that make an impact.
+          Hi, I&apos;m Deepanshu Kumar Singh, and I&apos;m passionate about crafting strategies, creating engaging content, and designing visuals that make an impact.
           </p>
           <p>
   Marketing has always been more than just a profession for me—it&apos;s a way to tell stories that connect people and brands. With an MSc in 

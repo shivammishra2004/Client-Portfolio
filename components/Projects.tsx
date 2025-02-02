@@ -1,4 +1,11 @@
-import { amazonImg, cyberImg, noorShop } from "@/public/assets";
+import {
+    eventImg,
+    marketImg1,
+    marketImg2,
+    cyberImg,
+    noorShop,
+} from "@/public/assets";
+// import "../public/assets/freelance.mp4";
 import Image from "next/image";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { TbBrandGithub } from "react-icons/tb";
@@ -23,7 +30,7 @@ const Projects = () => {
                         <div>
                             <Image
                                 className="w-full h-full object-contain"
-                                src={amazonImg}
+                                src={eventImg}
                                 alt="amazonImg"
                             />
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
@@ -172,9 +179,9 @@ const Projects = () => {
                             <span className="text-textGreen">
                                 product strategies
                             </span>
-                            , and share sales{" "}
-                            while solving key business challenges. This
-                            collaborative experience enhanced my{" "}
+                            , and share sales while solving key business
+                            challenges. This collaborative experience enhanced
+                            my{" "}
                             <span className="text-textGreen">
                                 strategic thinking
                             </span>
@@ -195,6 +202,70 @@ const Projects = () => {
                     </div>
                 </div>
                 {/* ============ project Three End here ================== */}
+                <div className="flex flex-col xl:flex-row gap-6">
+                    <div
+                        className="w-full xl:w-1/2 h-auto relative group"
+                    >
+                        <div>
+                            <video width="600" height="340" className="relative z-10" controls>
+                                <source
+                                    src="/assets/freelance.mp4"
+                                    type="video/mp4"
+                                />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
+                        </div>
+                    </div>
+                    <div className="w-full xl:w-1/2 flex flex-col gap-6 justify-between items-end text-right xl:-ml-16 z-10">
+                        <div>
+                            <p className="font-titleFont text-textGreen text-sm tracking-wide">
+                                Featured Project
+                            </p>
+                            <h3 className="text-2xl font-bold">FreeLance</h3>
+                        </div>
+                        <p className="text-sm md:text-base bg-[#112240] p-2 md:p-6 rounded-md">
+                            During a two-week{" "}
+                            <span className="text-textGreen">
+                                Pearson Business Simulation
+                            </span>{" "}
+                            with four colleagues, I gained hands-on experience
+                            in high-level{" "}
+                            <span className="text-textGreen">
+                                corporate decision-making
+                            </span>
+                            . We managed{" "}
+                            <span className="text-textGreen">acquisitions</span>
+                            ,{" "}
+                            <span className="text-textGreen">
+                                market positioning
+                            </span>
+                            ,{" "}
+                            <span className="text-textGreen">
+                                product strategies
+                            </span>
+                            , and share sales while solving key business
+                            challenges. This collaborative experience enhanced
+                            my{" "}
+                            <span className="text-textGreen">
+                                strategic thinking
+                            </span>
+                            ,{" "}
+                            <span className="text-textGreen">
+                                problem-solving skills
+                            </span>
+                            , and ability to make{" "}
+                            <span className="text-textGreen">
+                                data-driven decisions
+                            </span>{" "}
+                            under pressure. It provided a practical
+                            understanding of running a company from a leadership
+                            perspective, bridging theory with real-world
+                            application.
+                        </p>
+                        <div className="text-2xl flex gap-4"></div>
+                    </div>
+                </div>
             </div>
         </section>
     );

@@ -323,16 +323,6 @@ const Navbar = () => {
                                     </motion.a>
                                 </div>
                             </div>
-
-                            <motion.a
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 1.2, ease: "easeIn" }}
-                                className="text-sm w-72 tracking-widest text-textGreen text-center mt-4"
-                                href="tel:+447448943868"
-                            >
-                                <p>+44 7448943868</p>
-                            </motion.a>
                         </motion.div>
                     </div>
                 )}

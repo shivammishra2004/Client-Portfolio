@@ -33,20 +33,6 @@ const Archive = () => {
                     listItem={["Reactjs", "Tailwind CSS", "getform.io"]}
                     link="https://amazonclone.reactbd.com/"
                 />
-                <ArchiveCard
-                    title="JSON data (example data api for test projects)"
-                    des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              laudantium velit qui sint non, voluptates quo a veritatis."
-                    listItem={["Nextjs", "Tailwind CSS", "next-router"]}
-                    link="https://jsondata.reactbd.com/"
-                />
-                <ArchiveCard
-                    title="Dynamic Responsive Portfolio"
-                    des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            laudantium velit qui sint non, voluptates quo a veritatis."
-                    listItem={["Reactjs", "Tailwind CSS", "getform.io"]}
-                    link="https://portfolioone.reactbd.com/"
-                />
             </div>
         </div>
     );
