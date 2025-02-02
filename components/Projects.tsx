@@ -2,17 +2,105 @@ import {
     eventImg,
     marketImg1,
     marketImg2,
-    cyberImg,
+    marketImg3,
     noorShop,
+    freelance,
 } from "@/public/assets";
-// import "../public/assets/freelance.mp4";
 import Image from "next/image";
-import { AiOutlineYoutube } from "react-icons/ai";
-import { TbBrandGithub } from "react-icons/tb";
 import SectionTitle from "./SectionTitle";
-import { RxOpenInNewWindow } from "react-icons/rx";
+import { useEffect, useState } from "react";
+
+
 
 const Projects = () => {
+    useEffect(() => {
+        const playPauseVideo = () => {
+            const videos = document.querySelectorAll("video");
+
+            videos.forEach((video) => {
+                video.muted = true;
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                if (video.paused) {
+                                    video.play();
+                                }
+                            } else {
+                                if (!video.paused) {
+                                    video.pause();
+                                }
+                            }
+                        });
+                    },
+                    { threshold: 0.4 }
+                );
+
+                observer.observe(video);
+
+                return () => observer.disconnect();
+            });
+        };
+
+        playPauseVideo();
+    }, []);
+
+    const media = [
+        { name: marketImg1, type: "image", duration: 5000 },
+        { name: marketImg2, type: "image", duration: 5000 },
+        { name: marketImg3, type: "video", duration: 10000 },
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setTimeout(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+        }, media[currentIndex].duration);
+
+        return () => clearTimeout(interval);
+    }, [currentIndex, media]);
+
+    const handleNext = () => {
+        setCurrentIndex((prev) => (prev = (prev + 1) % media.length));
+        console.log('hello');
+    };
+
+    const renderMediaContent = (mediaItem): JSX.Element => {
+        const mediaContainerStyle = "w-full aspect-video relative"; // 16:9 aspect ratio container
+        const mediaCommonStyle = "w-full h-full object-cover rounded-lg absolute top-0 left-0"; // Common styles for both video and image
+    
+        if (mediaItem.type === "video") {
+            return (
+                <div className={mediaContainerStyle}>
+                    <video
+                        className={mediaCommonStyle}
+                        src={mediaItem.name.src || mediaItem.name}
+                        autoPlay
+                        muted
+                        onEnded={() =>
+                            setCurrentIndex(
+                                (prevIndex) => (prevIndex + 1) % media.length
+                            )
+                        }
+                    />
+                </div>
+            );
+        } else {
+            return (
+                <div className={mediaContainerStyle}>
+                    <Image
+                        className={mediaCommonStyle}
+                        src={mediaItem.name}
+                        alt={`Slide ${currentIndex + 1}`}
+                        fill // This ensures the image takes up the full container dimensions
+                    />
+                </div>
+            );
+        }
+    };
+
     return (
         <section
             id="project"
@@ -22,11 +110,7 @@ const Projects = () => {
             {/* ============ project One Start here ================ */}
             <div className="w-full flex flex-col items-center justify-center gap-28 mt-10">
                 <div className="flex flex-col xl:flex-row gap-6">
-                    <a
-                        className="w-full xl:w-1/2 h-auto relative group"
-                        href="https://nextamazon.reactbd.com/"
-                        target="_blank"
-                    >
+                    <div className="w-full xl:w-1/2 h-auto relative group">
                         <div>
                             <Image
                                 className="w-full h-full object-contain"
@@ -35,7 +119,7 @@ const Projects = () => {
                             />
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
                         </div>
-                    </a>
+                    </div>
                     <div className="w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right xl:-ml-16 z-10">
                         <div>
                             <p className="font-titleFont text-textGreen text-sm tracking-wide">
@@ -81,20 +165,18 @@ const Projects = () => {
                 {/* ============ project One End here ================== */}
                 {/* ============ project Two Start here ================ */}
                 <div className="flex flex-col xl:flex-row-reverse gap-6">
-                    <a
-                        className="w-full xl:w-1/2 h-auto relative group"
-                        href="https://www.noormohmmad.com/"
-                        target="_blank"
-                    >
+                    <div className="w-full xl:w-1/2 h-auto relative group">
                         <div>
-                            <Image
-                                className="w-full h-full object-contain"
-                                src={cyberImg}
-                                alt="cyberImg"
-                            />
+                            {renderMediaContent(media[currentIndex])}
+                            <button
+                                onClick={handleNext}
+                                className="absolute top-1/2 -right-1 -translate-y-1/2 bg-gray-500/50 text-white rounded-full px-2 text-2xl hover:bg-black/70 transition duration-300 z-50"
+                            >
+                                &gt;
+                            </button>
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
                         </div>
-                    </a>
+                    </div>
                     <div className="w-full xl:w-1/2 flex flex-col gap-6 justify-between items-end text-right z-10">
                         <div>
                             <p className="font-titleFont text-textGreen text-sm tracking-wide">
@@ -136,11 +218,7 @@ const Projects = () => {
                 {/* ============ project Two End here ================== */}
                 {/* ============ project Three Start here ============== */}
                 <div className="flex flex-col xl:flex-row gap-6">
-                    <a
-                        className="w-full xl:w-1/2 h-auto relative group"
-                        href="https://noorshop.netlify.app/"
-                        target="_blank"
-                    >
+                    <div className="w-full xl:w-1/2 h-auto relative group">
                         <div>
                             <Image
                                 className="w-full h-full object-contain"
@@ -149,7 +227,7 @@ const Projects = () => {
                             />
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
                         </div>
-                    </a>
+                    </div>
                     <div className="w-full xl:w-1/2 flex flex-col gap-6 justify-between items-end text-right xl:-ml-16 z-10">
                         <div>
                             <p className="font-titleFont text-textGreen text-sm tracking-wide">
@@ -203,15 +281,15 @@ const Projects = () => {
                 </div>
                 {/* ============ project Three End here ================== */}
                 <div className="flex flex-col xl:flex-row gap-6">
-                    <div
-                        className="w-full xl:w-1/2 h-auto relative group"
-                    >
+                    <div className="w-full xl:w-1/2 h-auto relative group">
                         <div>
-                            <video width="600" height="340" className="relative z-10" controls>
-                                <source
-                                    src="/assets/freelance.mp4"
-                                    type="video/mp4"
-                                />
+                            <video
+                                width="600"
+                                height="340"
+                                className="relative z-10"
+                                controls
+                            >
+                                <source src={freelance} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
