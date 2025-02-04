@@ -3,7 +3,7 @@ import {
     marketImg1,
     marketImg2,
     marketImg3,
-    noorShop,
+    business,
     freelance,
 } from "@/public/assets";
 import Image from "next/image";
@@ -231,8 +231,8 @@ const Projects = () => {
                         <div className="relative hover:z-20">
                             <Image
                                 className="w-full h-full object-contain"
-                                src={noorShop}
-                                alt="noorShop"
+                                src={business}
+                                alt="Pearson Business Simulation"
                             />
                             <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
                         </div>
@@ -297,7 +297,8 @@ const Projects = () => {
                                 height="340"
                                 className="relative z-10"
                                 autoPlay
-                                // controls
+                                muted
+                                loop
                             >
                                 <source src={freelance} type="video/mp4" />
                                 Your browser does not support the video tag.
@@ -310,7 +311,7 @@ const Projects = () => {
                             <p className="font-titleFont text-textGreen text-sm tracking-wide">
                                 Featured Project
                             </p>
-                            <h3 className="text-2xl font-bold">FreeLance</h3>
+                            <h3 className="text-2xl font-bold">Freelance Projects</h3>
                         </div>
                         <p className="bg-[#112240] text-sm md:text-base p-2 md:p-6 rounded-md">
                             Freelancing as a graphic designer and editor has

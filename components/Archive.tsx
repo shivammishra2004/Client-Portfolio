@@ -13,23 +13,25 @@ const Archive = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lgl:px-10">
                 <ArchiveCard
-                    title="Desseration"
-                    des="Topic: How Micro-Influencers Help New Brands To Create A Brand Perspective
+                    title="How Micro-Influencers Help New Brands To Create A Brand Perspective"
+                    topic="Dessertation"
+                    des="The paper explores how micro-influencers, through self-branding and credibility, better shape positive brand perception for new brands on social media compared to celebrity influencers.
 "
-
                     link="/assets/thesis.pdf"
                 />
                 <ArchiveCard
-                    title="Documentary"
-                    des="Topic: A Deep Dive into the Internet of Things and Its Impact on Modern Society"
+                    title="A Deep Dive into the Internet of Things"
+                    topic="Documentary"
+                    des="This Documentary explores the diverse sectors of IoT, its impact on daily life, and the future possibilities shaping the industry. It highlights IoT's growing role in innovation and connectivity."
                     link="https://drive.google.com/drive/folders/1-pmez8fZxNbNHeeutaHGqo7LK2y-SNS_"
                 />
-                <ArchiveCard
+                {/* <ArchiveCard
                     title="Amazon Clone with login, cart-option and payment intrigation."
+                    topic=""
                     des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             laudantium velit qui sint non, voluptates quo a veritatis."
                     link="https://amazonclone.reactbd.com/"
-                />
+                /> */}
             </div>
         </div>
     );
