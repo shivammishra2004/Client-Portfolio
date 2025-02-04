@@ -46,7 +46,7 @@ const Navbar = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.1 }}
                     >
-                        <Image className="w-14" src={logo} alt="logo" />
+                        <Image className="w-20" src={logo} alt="logo" />
                     </motion.div>
                 </Link>
                 {/* ============ Logo End here ============== */}

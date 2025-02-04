@@ -9,8 +9,13 @@ import {
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 import { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 
-
+interface MediaItem {
+    name: StaticImageData | string;
+    type: "image" | "video";
+    duration: number;
+}
 
 const Projects = () => {
     useEffect(() => {
@@ -24,13 +29,10 @@ const Projects = () => {
                     (entries) => {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
-                                if (video.paused) {
-                                    video.play();
-                                }
+                                video.play().catch(() => {
+                                });
                             } else {
-                                if (!video.paused) {
-                                    video.pause();
-                                }
+                                video.pause();
                             }
                         });
                     },
@@ -39,17 +41,20 @@ const Projects = () => {
 
                 observer.observe(video);
 
-                return () => observer.disconnect();
+                return () => {
+                    observer.disconnect();
+                    video.pause();
+                };
             });
         };
 
         playPauseVideo();
     }, []);
 
-    const media = [
-        { name: marketImg1, type: "image", duration: 5000 },
-        { name: marketImg2, type: "image", duration: 5000 },
-        { name: marketImg3, type: "video", duration: 10000 },
+    const media: MediaItem[] = [
+        { name: marketImg1, type: "image", duration: 3000 },
+        { name: marketImg2, type: "image", duration: 3000 },
+        { name: marketImg3, type: "video", duration: 6000 },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -62,43 +67,36 @@ const Projects = () => {
         return () => clearTimeout(interval);
     }, [currentIndex, media]);
 
-    const handleNext = () => {
-        setCurrentIndex((prev) => (prev = (prev + 1) % media.length));
-        console.log('hello');
-    };
+    const renderMediaContent = (mediaItem: MediaItem): JSX.Element => {
+        const mediaContainerStyle = "w-full aspect-video relative";
+        const mediaCommonStyle = "w-full h-full object-cover rounded-lg absolute top-0 left-0";
 
-    const renderMediaContent = (mediaItem): JSX.Element => {
-        const mediaContainerStyle = "w-full aspect-video relative"; // 16:9 aspect ratio container
-        const mediaCommonStyle = "w-full h-full object-cover rounded-lg absolute top-0 left-0"; // Common styles for both video and image
-    
         if (mediaItem.type === "video") {
             return (
                 <div className={mediaContainerStyle}>
                     <video
                         className={mediaCommonStyle}
-                        src={mediaItem.name.src || mediaItem.name}
+                        src={mediaItem.name as string}
                         autoPlay
                         muted
-                        onEnded={() =>
-                            setCurrentIndex(
-                                (prevIndex) => (prevIndex + 1) % media.length
-                            )
-                        }
-                    />
-                </div>
-            );
-        } else {
-            return (
-                <div className={mediaContainerStyle}>
-                    <Image
-                        className={mediaCommonStyle}
-                        src={mediaItem.name}
-                        alt={`Slide ${currentIndex + 1}`}
-                        fill // This ensures the image takes up the full container dimensions
+                        playsInline
+                        // onEnded={handleNext}
                     />
                 </div>
             );
         }
+
+        return (
+            <div className={mediaContainerStyle}>
+                <Image
+                    className={mediaCommonStyle}
+                    src={mediaItem.name as StaticImageData}
+                    alt={`Slide ${currentIndex + 1}`}
+                    fill
+                    priority={currentIndex === 0}
+                />
+            </div>
+        );
     };
 
     return (
@@ -287,7 +285,8 @@ const Projects = () => {
                                 width="600"
                                 height="340"
                                 className="relative z-10"
-                                controls
+                                autoPlay
+                                // controls
                             >
                                 <source src={freelance} type="video/mp4" />
                                 Your browser does not support the video tag.

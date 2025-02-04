@@ -1,5 +1,5 @@
 import logo from "./images/logo.png";
-import profileImg from "./images/profile.jpeg";
+import profileImg from "./images/profile.png";
 import noorShop from "./images/noorShop.png";
 import eventImg from "./images/eventManagement.png"
 import marketImg1 from "./images/marketingAgency1.png"
