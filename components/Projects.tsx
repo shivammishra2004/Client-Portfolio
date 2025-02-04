@@ -67,6 +67,10 @@ const Projects = () => {
         return () => clearTimeout(interval);
     }, [currentIndex, media]);
 
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+    };
+
     const renderMediaContent = (mediaItem: MediaItem): JSX.Element => {
         const mediaContainerStyle = "w-full aspect-video relative";
         const mediaCommonStyle = "w-full h-full object-cover rounded-lg absolute top-0 left-0";
