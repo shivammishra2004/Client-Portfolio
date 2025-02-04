@@ -29,8 +29,7 @@ const Projects = () => {
                     (entries) => {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
-                                video.play().catch(() => {
-                                });
+                                video.play().catch(() => {});
                             } else {
                                 video.pause();
                             }
@@ -73,7 +72,8 @@ const Projects = () => {
 
     const renderMediaContent = (mediaItem: MediaItem): JSX.Element => {
         const mediaContainerStyle = "w-full aspect-video relative";
-        const mediaCommonStyle = "w-full h-full object-cover rounded-lg absolute top-0 left-0";
+        const mediaCommonStyle =
+            "w-full h-full object-cover rounded-lg absolute top-0 left-0";
 
         if (mediaItem.type === "video") {
             return (
@@ -113,7 +113,7 @@ const Projects = () => {
             <div className="w-full flex flex-col items-center justify-center gap-28 mt-10">
                 <div className="flex flex-col xl:flex-row gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                        <div>
+                        <div className="relative hover:z-20">
                             <Image
                                 className="w-full h-full object-contain"
                                 src={eventImg}
@@ -138,28 +138,21 @@ const Projects = () => {
                             <span className="text-textGreen">
                                 vibrant event highlights
                             </span>
-                            ,
+                            ,{" "}
                             <span className="text-textGreen">
                                 behind-the-scenes glimpses
                             </span>
-                            , and
+                            , and{" "}
                             <span className="text-textGreen">
                                 interactive stories
                             </span>{" "}
-                            that truly reflected their brand&apos;s energy. By
-                            staying consistent and engaging with followers, we
-                            built a{" "}
-                            <span className="text-textGreen">
-                                strong online presence
-                            </span>
-                            . The result? A{" "}
+                            that truly reflected their brand&apos;s energy. The
+                            result? A{" "}
                             <span className="text-textGreen">
                                 50% increase in traffic
                             </span>
                             , more event inquiries, and a growing community of
-                            engaged followers. <br />
-                            Social media didn&apos;t just support the brand—it
-                            became a stage for its success.
+                            engaged followers.
                         </p>
                         <div className="text-2xl flex gap-4"></div>
                     </div>
@@ -168,7 +161,7 @@ const Projects = () => {
                 {/* ============ project Two Start here ================ */}
                 <div className="flex flex-col xl:flex-row-reverse gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                        <div>
+                    <div className="relative hover:z-20">
                             {renderMediaContent(media[currentIndex])}
                             <button
                                 onClick={handleNext}
@@ -221,7 +214,7 @@ const Projects = () => {
                 {/* ============ project Three Start here ============== */}
                 <div className="flex flex-col xl:flex-row gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                        <div>
+                    <div className="relative hover:z-20">
                             <Image
                                 className="w-full h-full object-contain"
                                 src={noorShop}
@@ -284,7 +277,7 @@ const Projects = () => {
                 {/* ============ project Three End here ================== */}
                 <div className="flex flex-col xl:flex-row gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                        <div>
+                        <div className="relative hover:z-20">
                             <video
                                 width="600"
                                 height="340"
@@ -305,44 +298,28 @@ const Projects = () => {
                             </p>
                             <h3 className="text-2xl font-bold">FreeLance</h3>
                         </div>
-                        <p className="text-sm md:text-base bg-[#112240] p-2 md:p-6 rounded-md">
-                            During a two-week{" "}
+                        <p className="bg-[#112240] text-sm md:text-base p-2 md:p-6 rounded-md">
+                            Freelancing as a graphic designer and editor has
+                            been a transformative journey, blending creativity
+                            with practical experience. Collaborating with{" "}
                             <span className="text-textGreen">
-                                Pearson Business Simulation
+                                college societies
                             </span>{" "}
-                            with four colleagues, I gained hands-on experience
-                            in high-level{" "}
+                            and{" "}
+                            <span className="text-textGreen">influencers</span>{" "}
+                            refined my design skills and audience understanding.
+                            Balancing projects with academics taught me{" "}
                             <span className="text-textGreen">
-                                corporate decision-making
-                            </span>
-                            . We managed{" "}
-                            <span className="text-textGreen">acquisitions</span>
-                            ,{" "}
-                            <span className="text-textGreen">
-                                market positioning
+                                time management
                             </span>
                             ,{" "}
+                            <span className="text-textGreen">adaptability</span>
+                            , and{" "}
                             <span className="text-textGreen">
-                                product strategies
+                                client communication
                             </span>
-                            , and share sales while solving key business
-                            challenges. This collaborative experience enhanced
-                            my{" "}
-                            <span className="text-textGreen">
-                                strategic thinking
-                            </span>
-                            ,{" "}
-                            <span className="text-textGreen">
-                                problem-solving skills
-                            </span>
-                            , and ability to make{" "}
-                            <span className="text-textGreen">
-                                data-driven decisions
-                            </span>{" "}
-                            under pressure. It provided a practical
-                            understanding of running a company from a leadership
-                            perspective, bridging theory with real-world
-                            application.
+                            , fostering professional growth and an
+                            entrepreneurial mindset.
                         </p>
                         <div className="text-2xl flex gap-4"></div>
                     </div>

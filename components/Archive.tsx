@@ -8,29 +8,26 @@ const Archive = () => {
         <div className="max-w-contentContainer mx-auto px-4 py-24">
             <div className="w-full flex flex-col items-center">
                 <h2 className="text-3xl font-titleFont font-semibold">
-                    Freelance Projects
+                    Other Related Projects
                 </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lgl:px-10">
                 <ArchiveCard
-                    title="Cyber Security Blog with live comments section"
-                    des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            laudantium velit qui sint non, voluptates quo a veritatis."
-                    listItem={["Reactjs", "Tailwind CSS", "getform.io"]}
-                    link="https://www.noormohmmad.com/"
+                    title="Desseration"
+                    des="Topic: How Micro-Influencers Help New Brands To Create A Brand Perspective
+"
+
+                    link="/assets/thesis.pdf"
                 />
                 <ArchiveCard
-                    title="ReactBD web development company"
-                    des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            laudantium velit qui sint non, voluptates quo a veritatis."
-                    listItem={["Reactjs", "Tailwind CSS", "getform.io"]}
-                    link="https://reactbd.com/"
+                    title="Documentary"
+                    des="Topic: A Deep Dive into the Internet of Things and Its Impact on Modern Society"
+                    link="https://drive.google.com/drive/folders/1-pmez8fZxNbNHeeutaHGqo7LK2y-SNS_"
                 />
                 <ArchiveCard
                     title="Amazon Clone with login, cart-option and payment intrigation."
                     des=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             laudantium velit qui sint non, voluptates quo a veritatis."
-                    listItem={["Reactjs", "Tailwind CSS", "getform.io"]}
                     link="https://amazonclone.reactbd.com/"
                 />
             </div>
