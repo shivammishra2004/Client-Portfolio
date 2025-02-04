@@ -50,56 +50,65 @@ const Projects = () => {
         playPauseVideo();
     }, []);
 
-    const media: MediaItem[] = [
-        { name: marketImg1, type: "image", duration: 3000 },
-        { name: marketImg2, type: "image", duration: 3000 },
-        { name: marketImg3, type: "video", duration: 6000 },
-    ];
-
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    const media: MediaItem[] = [
+        { name: marketImg1, type: "image", duration: 2500 },
+        { name: marketImg2, type: "image", duration: 2500 },
+        { name: marketImg3, type: "video", duration: 4500 },
+    ];
 
     useEffect(() => {
         const interval = setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+            handleNext();
         }, media[currentIndex].duration);
 
         return () => clearTimeout(interval);
     }, [currentIndex, media]);
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+            setIsTransitioning(false);
+        }, 500);
     };
 
-    const renderMediaContent = (mediaItem: MediaItem): JSX.Element => {
-        const mediaContainerStyle = "w-full aspect-video relative";
-        const mediaCommonStyle =
-            "w-full h-full object-cover rounded-lg absolute top-0 left-0";
+    const renderMediaContent = (mediaItem: MediaItem, index: number) => {
+        const isActive = index === currentIndex;
+        const isPrevious =
+            index === (currentIndex - 1 + media.length) % media.length;
+
+        const mediaClasses = `
+          absolute top-0 left-0 w-full h-full object-cover rounded-lg
+          transition-all duration-500 ease-in-out
+          ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-95"}
+          ${isPrevious && isTransitioning ? "z-10" : "z-0"}
+        `;
 
         if (mediaItem.type === "video") {
             return (
-                <div className={mediaContainerStyle}>
-                    <video
-                        className={mediaCommonStyle}
-                        src={mediaItem.name as string}
-                        autoPlay
-                        muted
-                        playsInline
-                        // onEnded={handleNext}
-                    />
-                </div>
+                <video
+                    key={isActive ? "active" : "inactive"}
+                    className={mediaClasses}
+                    src={mediaItem.name as string}
+                    autoPlay
+                    muted
+                    loop
+                />
             );
         }
 
         return (
-            <div className={mediaContainerStyle}>
-                <Image
-                    className={mediaCommonStyle}
-                    src={mediaItem.name as StaticImageData}
-                    alt={`Slide ${currentIndex + 1}`}
-                    fill
-                    priority={currentIndex === 0}
-                />
-            </div>
+            <Image
+                key={index}
+                className={mediaClasses}
+                src={mediaItem.name}
+                alt={`Slide ${index + 1}`}
+                fill
+                priority={index === 0}
+            />
         );
     };
 
@@ -109,6 +118,7 @@ const Projects = () => {
             className="max-w-container mx-auto lgl:px-20 py-24"
         >
             <SectionTitle title="Projects I've Worked On:" titleNo="03" />
+
             {/* ============ project One Start here ================ */}
             <div className="w-full flex flex-col items-center justify-center gap-28 mt-10">
                 <div className="flex flex-col xl:flex-row gap-6">
@@ -158,14 +168,17 @@ const Projects = () => {
                     </div>
                 </div>
                 {/* ============ project One End here ================== */}
+
                 {/* ============ project Two Start here ================ */}
                 <div className="flex flex-col xl:flex-row-reverse gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                    <div className="relative hover:z-20">
-                            {renderMediaContent(media[currentIndex])}
+                        <div className="relative hover:z-20  w-full aspect-video overflow-hidden">
+                            {media.map((item, index) =>
+                                renderMediaContent(item, index)
+                            )}
                             <button
                                 onClick={handleNext}
-                                className="absolute top-1/2 -right-1 -translate-y-1/2 bg-gray-500/50 text-white rounded-full px-2 text-2xl hover:bg-black/70 transition duration-300 z-50"
+                                className="absolute top-1/2 right-1 -translate-y-1/2 bg-gray-500/50 text-white rounded-full px-2 text-2xl hover:bg-black/70 transition duration-300 z-50"
                             >
                                 &gt;
                             </button>
@@ -210,11 +223,12 @@ const Projects = () => {
                         <div className="text-2xl flex gap-4"></div>
                     </div>
                 </div>
+
                 {/* ============ project Two End here ================== */}
                 {/* ============ project Three Start here ============== */}
                 <div className="flex flex-col xl:flex-row gap-6">
                     <div className="w-full xl:w-1/2 h-auto relative group">
-                    <div className="relative hover:z-20">
+                        <div className="relative hover:z-20">
                             <Image
                                 className="w-full h-full object-contain"
                                 src={noorShop}
